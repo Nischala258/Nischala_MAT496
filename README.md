@@ -16,8 +16,27 @@ In RAG we have 2 runs: retrieve information and generate answer.
 **Code:** 
 First set up the environment variables. 
 Using the same RAG function as in the initial module, we apply traceable decorator. This creates a run tree for all the functions.
+
 We can check all these traces in the langsmith website. We can see each run with the inputs and outputs. We can also see the documents that were retrieved to generate the response. 
+
 Now, we attach meta data. It is a dictionary of key values which we can attach to run to store additional information (like the model provider used, version of the application) about the run. 
+
 These runs can be shared.
 
+**Video 3:** 
+**Types of Runs:** 
+1.	LLM : invokes an llm 
+2.	Retriever: Retrieves documents from external sources
+3.	Tool : Executes actions with function calls
+4.	Chain : Combines multiple runs into a larger process
+5.	Prompt: to create a prompt 
+6.	Parse: Extracts structured data
+**Code:** 
+We give an input and output to the llm mentioning the role and command. First we run it without specifying run type , later we run specifying the run type. We can compare these two runs in Langsmith and see the difference. When we specify the run type, we can get access to playground feature where we can make changes. Then we add ls_model and ls_provider to specify which model we want to be used. 
+
+Next is to see how llm runs are handled during streaming. We will run the code. Then add the reduce function. We will compare them in Langsmith. The code with reduce functions gives a rendered outcome.
+
+Next we run the code for document retrieval using doc_type. Then change it to just type. The second one gives a neat list of the documents used for data retrieval. The first one gives a raw code. 
+
+Then we, run the tool call. In Langsmith we can see that, first it recognises that the tool has to be used. Then, the tool is called and finally the output is produced. 
 
