@@ -2,7 +2,8 @@
 
 I have used Gemini and GoogleAI both to replace OPENAI.
 
-Module 1 : Tracing
-Video 1: 
-Tracing : To help debug and understand better how each part of the code is working. 
-Project : Is our RAG application. It has a collection of traces. 
+# Module 1: Tracing
+
+## Video 1
+**Tracing:** To help debug and understand better how each part of the code is working.  
+**Project :** This is our RAG application. It has a collection of traces.
