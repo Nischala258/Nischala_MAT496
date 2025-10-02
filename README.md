@@ -10,9 +10,11 @@ We set up the environment variables and wrote a basic RAG function.
 
 ## Video 2 
 **Project :** This is our RAG application. It has a collection of traces.
+
 **Trace:** Record of events when the application was run. 
 **Run :** execution of each logic. 
 In RAG we have 2 runs: retrieve information and generate answer. 
+
 **Code:** 
 First set up the environment variables. 
 Using the same RAG function as in the initial module, we apply traceable decorator. This creates a run tree for all the functions.
@@ -23,7 +25,7 @@ Now, we attach meta data. It is a dictionary of key values which we can attach t
 
 These runs can be shared.
 
-**Video 3:** 
+## Video 3
 **Types of Runs:** 
 1.	LLM : invokes an llm 
 2.	Retriever: Retrieves documents from external sources
@@ -31,7 +33,9 @@ These runs can be shared.
 4.	Chain : Combines multiple runs into a larger process
 5.	Prompt: to create a prompt 
 6.	Parse: Extracts structured data
+
 **Code:** 
+
 We give an input and output to the llm mentioning the role and command. First we run it without specifying run type , later we run specifying the run type. We can compare these two runs in Langsmith and see the difference. When we specify the run type, we can get access to playground feature where we can make changes. Then we add ls_model and ls_provider to specify which model we want to be used. 
 
 Next is to see how llm runs are handled during streaming. We will run the code. Then add the reduce function. We will compare them in Langsmith. The code with reduce functions gives a rendered outcome.
