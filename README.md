@@ -60,3 +60,18 @@ Wrap_openai() lets any calls done through openAI be directly traced to LangSmith
 
 Then we have Runtree API. This gives us more control as it lets us decide where the runs are to be formed. 
 
+## Video 5:
+**Conversational threads:**
+
+ Threads are a series of traces. These threads re important because they contain information, that can be used for answering further questions. 
+ Usually, most LLMs are conversational i.e., the user asks a question and the LLM gives the output. 
+To associate traces, we need to pass metadata keys. Key name can be one of session_id , thread_id, and conversation_id.
+
+**Code:** 
+	
+We run the usual RAG code. 
+
+Then we run two other codes with the same thread id (uuid). 
+
+Now, in LangSmith we can see it in the threads feature. Here both the codes are saved like a conversation just like all the llms we use. This is useful of we want to debug a full conversation. 
+
