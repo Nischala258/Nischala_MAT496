@@ -44,3 +44,19 @@ Next we run the code for document retrieval using doc_type. Then change it to ju
 
 Then we, run the tool call. In Langsmith we can see that, first it recognises that the tool has to be used. Then, the tool is called and finally the output is produced. 
 
+## Video 4:
+Default way for tracing is using @traceable, it is also the most simple way of doing it. 
+
+If we are using langchain / langraph, it automatically set ups trace in the website. 
+
+**Code:** 
+
+In the first code, we use LangGraph to set up tracing. When we use the graph builder, we can see the same data in the LangSmith that we saw when we used @traceable. 
+
+In the next part, we use trace context to log just a part of the code. Here, we use with trace() , give a name to this run, run type, inputs and metadata. Then, we can log our response using ls_trace.end . This will patch our output to LangSmith so that it shows up in the trace. 
+In LangSmith, we can see that in the code with trace context, we can see the question and the formatted doc string in the input. 
+
+Wrap_openai() lets any calls done through openAI be directly traced to LangSmith. Because, I am not using openAI, I delegate the task to wrap to Gemini. 
+
+Then we have Runtree API. This gives us more control as it lets us decide where the runs are to be formed. 
+
