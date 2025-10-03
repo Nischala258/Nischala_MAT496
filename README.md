@@ -75,3 +75,32 @@ Then we run two other codes with the same thread id (uuid).
 
 Now, in LangSmith we can see it in the threads feature. Here both the codes are saved like a conversation just like all the llms we use. This is useful of we want to debug a full conversation. 
 
+
+# Module 2:
+
+## Datasets video: 
+Datasets are a part of offline evaluation. It let’s us evaluate if the application is getting better or worse when changes ( new prompts, different model or new architecture) are made. 
+
+Data sets are just a list of examples (input and optional output).
+
+We got to LangSmith and create a dataset from the scratch. We give it a name and description. 
+
+**CODE:**
+
+We give a few input and output statements. Put our data set id in the code and create these as examples using client.create_examples() . 
+
+In LangSmith, now we have a set of examples with input and ouput json files. Then we tag this, so that we can come back and work on this later. 
+
+ We can add individual traces also to the dataset from LangSmith. 
+We can also create separate datasets for document retrieved and response generated. 
+
+We can edit the examples in the dataset in LangSmith. 
+
+We can add input scheme (type, and format). 
+
+We can examples manually in the dataset in LangSmith
+
+We can add AI generated examples also, the AI generates similar examples to what we added. 
+
+We can also add splits (like subsets) and include whatever questions we want in it. 
+
