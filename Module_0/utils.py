@@ -39,3 +39,5 @@ def get_vector_db_retriever():
     )
     vectorstore.persist()
     return vectorstore.as_retriever(lambda_mult=0)
+
+

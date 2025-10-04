@@ -125,3 +125,72 @@ In LangSmith, we can add Evaluators by selecting the Auto-Evaluators option.
 We name the Evaluator, select provider and Model. We need our API key to generate this. Then we can, use suggested Evaluator prompts or create our own.
 
  When we select to create our own evaluator, we can see three variables: input, submission and reference. These variables can be changed. In the schema, we can define what our evaluation should look like (In our case it is a score between 1 to 10). 
+
+## Experiments: 
+**Experiments:**
+ Running your application over a dataset and evaluating it using Evaluators. 
+
+Each example in a dataset has an example id. 
+
+**Code:**
+Import Evaluate. Create client and specify dataset name. Then we will define an evaluator, it measures the conciseness of our run output compared to our reference output. 
+
+Our target function takes the input as dictionary and converts It into a string. Then we run the experiment. 
+Then we change our model and run our experiment. 
+
+Then we run the experiment only on the initial dataset. 
+Then we run the experiment over the split. 
+We can also run the experiment on individual examples. 
+We can specify the number of times the experiment is to be run for single examples.
+We can add metadata to the experiment.  
+
+
+## Analysing Experiments Results:
+
+Any evaluator created in LangSmith will run over all the experiments in the dataset. But, if we define an Evaluator in code we have to add it to the evaluate call to the SDK. 
+
+Default charts are created for the different evaluators. Shows how the values of the Evaluator has changed through different experiments. 
+
+We can add filter on Metadata and feedback data. 
+There are different display options, and we can see the latency as well. 
+
+We can also check the Evaluator runs. We can debug Evaluators here. 
+
+We can add filters for feedback as well. 
+We can use the compare button to compare experiments side by side. 
+
+## Pairwise Experiments:
+
+It is not usually easy to score how two different applications performed when they are run separately. It is therefore easier to compare them head to head. 
+
+Feedback scores are returned after pairwise evaluation. It is usually binary: 1 for which is preferred and 0 for which is not. 
+
+**Code:** 
+
+We are changing the RAG prompt in this. 
+The evaluator checks which experiment gives a better summarization. 
+
+We will run two different experiments. 
+Now we use pairwise Evaluators. 
+
+We give two separate prompts, one where we ask the LLM to be a judge of which summary is better and a human prompt where we provide both the summaries. 
+
+Next we define the reference class, where we want a feedback score of 1 or 0. 
+Run the evaluator. 
+
+Now we can see that, we are already comparing the experiments. 
+
+## Summary Evaluators: 
+Some metrics can only be defined on the entire experimental level and not on individual runs. These are called Summary Evaluators. 
+
+**Code:**
+
+We are defining a toxicity class to see if the examples are toxic or not toxic. 
+
+We want to sit false positive (incorrectly classify toxic as non toxic) and false negative (incorrectly classified non toxic as toxic). This is the f1_score_summary evaluator. 
+
+We can then see the f1 score in the evaluator tab in LangSmith. 
+
+ 
+
+
